@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Criminology Development and Excellence Network (CDEN) - Advancing criminology, criminal justice, security studies, and social development through education, research, and leadership.">
+    <meta name="keywords" content="Criminology, Criminal Justice, Security Studies, Leadership, Africa Research, Academic Network">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cden-network.org/">
+    <meta property="og:title" content="Criminology Development and Excellence Network | CDEN">
+    <meta property="og:description" content="Building Knowledge. Inspiring Leadership. Transforming Society. Africa's leading network for criminology development.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Criminology Development and Excellence Network | CDEN">
+    <meta property="twitter:description" content="Building Knowledge. Inspiring Leadership. Transforming Society.">
+
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+
+    <title>Criminology Development and Excellence Network (CDEN)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS RESET & VARIABLES */
+        :root {
+            --primary: #0A2342;
+            --primary-rgb: 10, 35, 66;
+            --secondary: #1565C0;
+            --secondary-rgb: 21, 101, 192;
+            --accent: #F4B400;
+            --accent-rgb: 244, 180, 0;
+            --bg-pure: #FFFFFF;
+            --bg-card: #F8F9FA;
+            --text-main: #212529;
+            --text-muted: #495057;
+            --border-color: rgba(10, 35, 66, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --shadow-sm: 0 4px 12px rgba(10, 35, 66, 0.03);
+            --shadow-md: 0 12px 32px rgba(10, 35, 66, 0.06);
+            --shadow-lg: 0 24px 64px rgba(10, 35, 66, 0.1);
+            --easing: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.6s var(--easing);
+        }
+
+        [data-theme="dark"] {
+            --bg-pure: #070F1E;
+            --bg-card: #0D1B2A;
+            --text-main: #F8F9FA;
+            --text-muted: #E0E1DD;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(7, 15, 30, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-pure);
+            color: var(--text-main);
+            transition: background-color 0.5s var(--easing), color 0.5s var(--easing);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            color: inherit;
+            letter-spacing: -0.02em;
+        }
+
+        /* SCROLL PROGRESS INDICATOR */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            width: 0%;
+            z-index: 10000;
+            transition: width 0.1s linear;
+        }
+
+        /* LOADING ANIMATION */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0A2342;
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s var(--easing), visibility 0.6s var(--easing);
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s infinite linear;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* UTILITIES & CONTAINER */
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        .section {
+            padding: 10rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        [data-theme="dark"] .section-tag {
+            color: var(--accent);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] .section-title {
+            color: #FFFFFF;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 2.5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 100px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            gap: 0.75rem;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(21, 101, 192, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
+        }
+
+        .btn-outline:hover {
+            background: #FFFFFF;
+            color: var(--primary);
+            border-color: #FFFFFF;
+            transform: translateY(-4px);
+        }
+
+        /* STICKY NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 2rem 0;
+            background: transparent;
+        }
+
+        header.scrolled {
+            padding: 1rem 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            letter-spacing: -0.03em;
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo {
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] header.scrolled .logo {
+            color: #FFFFFF;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.85);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        header.scrolled .nav-item a {
+            color: var(--text-main);
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.4s var(--easing);
+        }
+
+        .nav-item a:hover::after {
+            width: 100%;
+        }
+
+        .nav-item a:hover {
+            color: var(--accent) !important;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            transition: var(--transition);
+        }
+
+        header.scrolled .theme-toggle {
+            color: var(--text-main);
+            background: rgba(var(--primary-rgb), 0.05);
+        }
+
+        [data-theme="dark"] header.scrolled .theme-toggle {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hamburger {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: #FFFFFF;
+            transition: var(--transition);
+        }
+
+        header.scrolled .hamburger span {
+            background-color: var(--text-main);
+        }
+
+        /* HERO SECTION WITH PARALLAX & ANIMATED SHAPES */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(10, 35, 66, 0.82), rgba(7, 15, 30, 0.95)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #FFFFFF;
+            padding-top: 120px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 920px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -0.04em;
+            animation: heroFadeUp 1.2s var(--easing) forwards;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 3.5rem;
+            max-width: 800px;
+            animation: heroFadeUp 1.2s var(--easing) 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            animation: heroFadeUp 1.2s var(--easing) 0.4s forwards;
+            opacity: 0;
+        }
+
+        .hero-bg-shapes .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(21, 101, 192, 0.2) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: 1;
+        }
+
+        .shape-1 { width: 600px; height: 600px; top: -10%; right: -10%; animation: floatShape 20s infinite linear; }
+        .shape-2 { width: 500px; height: 500px; bottom: -5%; left: -5%; animation: floatShape 25s infinite linear reverse; }
+
+        @keyframes floatShape {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(40px, -60px) rotate(180deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        @keyframes heroFadeUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* ABOUT MODULE & ANIMATED COUNTERS */
+        .about-split {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-body p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .counter-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .counter-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--secondary);
+        }
+
+        .counter-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        [data-theme="dark"] .counter-num { color: #FFFFFF; }
+
+        .counter-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--secondary);
+        }
+
+        /* VISION & MISSION ARCHITECTURE */
+        .vision-mission-wrap {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 32px;
+            padding: 5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .vision-showcase {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 5rem auto;
+            padding-bottom: 5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .vision-showcase h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] .vision-showcase h3 { color: #FFFFFF; }
+
+        .vision-showcase p {
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--secondary);
+        }
+
+        [data-theme="dark"] .vision-showcase p { color: var(--accent); }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3.5rem 4rem;
+        }
+
+        .mission-node {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .mission-icon-box {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            background: rgba(21, 101, 192, 0.08);
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--secondary);
+            font-weight: 800;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.25rem;
+        }
+
+        [data-theme="dark"] .mission-icon-box {
+            background: rgba(254, 180, 0, 0.1);
+            color: var(--accent);
+        }
+
+        .mission-details h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] .mission-details h4 { color: #FFFFFF; }
+
+        .mission-details p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* PREMIUM ANIMATED CARDS (CORE VALUES & WHAT WE DO) */
+        .card-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .matrix-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .matrix-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--easing);
+        }
+
+        .matrix-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .matrix-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .matrix-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(10, 35, 66, 0.04);
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .matrix-icon {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent);
+        }
+
+        .matrix-card:hover .matrix-icon {
+            background: var(--primary);
+            color: #FFFFFF;
+            transform: scale(1.1);
+        }
+
+        .matrix-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] .matrix-title { color: #FFFFFF; }
+
+        .matrix-desc {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.65;
+        }
+
+        /* MEMBERSHIP SCHEMES */
+        .membership-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 3rem;
+            margin-bottom: 6rem;
+        }
+
+        .tier-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tier-card.featured {
+            border: 2px solid var(--secondary);
+            transform: scale(1.03);
+            background: var(--bg-pure);
+        }
+
+        .tier-name {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .tier-name { color: #FFFFFF; }
+
+        .tier-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            flex-grow: 1;
+        }
+
+        .benefits-checklist {
+            list-style: none;
+            margin-bottom: 3.5rem;
+        }
+
+        .benefits-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 0.98rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .benefits-checklist span {
+            color: #28A745;
+            font-weight: 700;
+        }
+
+        /* MASTER ADVANTAGES CHECKLIST BOARD */
+        .advantages-board {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 32px;
+            padding: 5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .advantages-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] .advantages-title { color: #FFFFFF; }
+
+        .advantages-matrix {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .advantages-matrix li {
+            display: flex;
+            gap: 1.25rem;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .adv-bullet {
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        /* EXECUTIVE GOVERNANCE */
+        .governance-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 32px;
+            padding: 6rem 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .avatar-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(var(--primary-rgb), 0.05);
+            border: 2px dashed var(--secondary);
+            margin: 0 auto 2.5rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--secondary);
+        }
+
+        .governance-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] .governance-title { color: #FFFFFF; }
+
+        .governance-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CHRONOLOGICAL TIMELINE (EVENTS) */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-node {
+            padding: 2rem 4rem;
+            position: relative;
+            width: 50%;
+            clear: both;
+        }
+
+        .timeline-node.left { float: left; text-align: right; }
+        .timeline-node.right { float: right; text-align: left; }
+
+        .timeline-node::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg-pure);
+            border: 4px solid var(--secondary);
+            top: 2.5rem;
+            border-radius: 50%;
+            z-index: 5;
+        }
+
+        .timeline-node.right::after { left: -10px; right: auto; }
+
+        .timeline-bubble {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .timeline-bubble:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--secondary);
+        }
+
+        .node-tag {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--secondary);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .node-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] .node-title { color: #FFFFFF; }
+
+        .node-status {
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE MASONRY GALLERY */
+        .masonry-wall {
+            column-count: 3;
+            column-gap: 2rem;
+        }
+
+        .masonry-brick {
+            background: var(--bg-card);
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .masonry-brick img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s var(--easing);
+        }
+
+        .brick-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(10, 35, 66, 0.95) 0%, rgba(10, 35, 66, 0.2) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .masonry-brick:hover img { transform: scale(1.08); }
+        .masonry-brick:hover .brick-overlay { opacity: 1; }
+
+        .brick-caption { color: #FFFFFF; font-size: 1.2rem; font-weight: 600; }
+
+        /* LOGO WALL MATRIX */
+        .partners-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 5rem;
+            border-radius: 32px;
+            text-align: center;
+        }
+
+        .partners-text {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            max-width: 850px;
+            margin: 0 auto 4rem auto;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .logo-flexbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-placeholder-node {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            border: 2px dashed var(--border-color);
+            padding: 1.25rem 2.5rem;
+            border-radius: 12px;
+            opacity: 0.7;
+        }
+
+        /* PREMIUM CONTACT HUBS */
+        .contact-card-box {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 40px;
+            padding: 6rem 4rem;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-card-box h3 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .contact-card-box p { font-size: 1.2rem; opacity: 0.85; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        .email-anchor {
+            font-size: 2.2rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 3.5rem;
+            display: inline-block;
+            transition: var(--transition);
+            word-break: break-all;
+        }
+
+        .email-anchor:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+
+        /* STRUCTURAL FOOTER MAP */
+        footer {
+            background: #040A14;
+            color: #FFFFFF;
+            padding: 6rem 0 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+
+        .footer-title-block h4 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .footer-title-block p { font-size: 0.95rem; color: #A0AEC0; letter-spacing: 0.05em; }
+
+        .footer-mail-link a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-mail-link a:hover { color: var(--accent); }
+
+        .footer-base {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #718096;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        /* SYSTEM UTILITIES */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 56px;
+            height: 56px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: translateY(-5px); background-color: var(--secondary); }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s var(--easing), transform 1s var(--easing);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE BREAKPOINTS ENGINE */
+        @media (max-width: 1200px) {
+            html { font-size: 15px; }
+            .hero h1 { font-size: 3.8rem; }
+            .about-split { grid-template-columns: 1fr; gap: 4rem; }
+            .masonry-wall { column-count: 2; }
+        }
+
+        @media (max-width: 992px) {
+            .mission-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .advantages-matrix { grid-template-columns: 1fr; gap: 1.5rem; }
+            .timeline-container::after { left: 40px; }
+            .timeline-node { width: 100%; padding-left: 6rem; padding-right: 0; text-align: left !important; }
+            .timeline-node::after { left: 40px; transform: translateX(-50%); }
+            .timeline-node.left::after { right: auto; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 420px;
+                height: 100vh;
+                background-color: var(--bg-card);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 7rem 4rem;
+                gap: 2rem;
+                box-shadow: var(--shadow-lg);
+                transition: right 0.5s var(--easing);
+                overflow-y: auto;
+            }
+            .nav-menu.active { right: 0; }
+            .nav-item a { color: var(--text-main) !important; font-size: 1.2rem; }
+            
+            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -8px); }
+            
+            header:not(.scrolled) .hamburger span { background-color: #FFFFFF; }
+            .hamburger.active span { background-color: var(--text-main) !important; }
+            
+            .hero h1 { font-size: 2.8rem; }
+            .section { padding: 6rem 0; }
+            .section-title { font-size: 2.25rem; }
+            .vision-mission-wrap, .advantages-board, .partners-card, .contact-card-box { padding: 3rem 1.5rem; }
+            .masonry-wall { column-count: 1; }
+            .footer-top-row, .footer-base { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <div id="loader">
+        <div class="spinner" aria-label="Loading platform workspace"></div>
+    </div>
+
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <a href="#home" class="logo">CDEN</a>
+            <nav role="navigation" aria-label="Main Navigation">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item"><a href="#home">Home</a></li>
+                    <li class="nav-item"><a href="#about">About</a></li>
+                    <li class="nav-item"><a href="#vision-mission">Vision & Mission</a></li>
+                    <li class="nav-item"><a href="#core-values">Values</a></li>
+                    <li class="nav-item"><a href="#what-we-do">Programs</a></li>
+                    <li class="nav-item"><a href="#membership">Membership</a></li>
+                    <li class="nav-item"><a href="#leadership">Leadership</a></li>
+                    <li class="nav-item"><a href="#events">Events</a></li>
+                    <li class="nav-item"><a href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a href="#partners">Partners</a></li>
+                    <li class="nav-item"><a href="#news">News</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle structural light/dark palette">
+                    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+                </button>
+                <button class="hamburger" id="hamburger-menu" aria-label="Toggle responsive navigation window" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero" id="home">
+            <div class="hero-bg-shapes" aria-hidden="true">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Building Knowledge.<br>Inspiring Leadership.<br>Transforming Society.</h1>
+                    <p>Criminology Development and Excellence Network (CDEN) is a professional and academic network committed to advancing criminology, criminal justice, security studies, and social development through education, research, innovation, mentorship, and collaboration.</p>
+                    <div class="hero-btns">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXliTtBoJn09LHPHzLSo--wDUnv0xJY4L1lE-RhlC7c759bg/viewform?usp=publish-editor" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Become a Member</a>
+                        <a href="#what-we-do" class="btn btn-outline">Explore Our Programs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container">
+                <div class="about-split">
+                    <div class="about-body reveal">
+                        <span class="section-tag">About Network</span>
+                        <h2 class="section-title">A Dynamic Platform for Academic and Professional Brilliance</h2>
+                        <p>The Criminology Development and Excellence Network (CDEN) is a dynamic platform established to promote academic excellence, professional development, research collaboration, leadership, and community engagement within the field of criminology and related disciplines.</p>
+                        <p>CDEN believes that sustainable national development depends on knowledgeable professionals who are committed to justice, security, ethical leadership, and evidence-based solutions to crime and social challenges.</p>
+                        <p>By connecting students, educators, researchers, practitioners, and institutions, CDEN creates opportunities for learning, networking, innovation, and lifelong professional growth.</p>
+                    </div>
+                    <div class="counter-grid reveal">
+                        <div class="counter-card">
+                            <div class="counter-num" data-count="8">0</div>
+                            <div class="counter-label">Core Values</div>
+                        </div>
+                        <div class="counter-card">
+                            <div class="counter-num" data-count="6">0</div>
+                            <div class="counter-label">Key Pillars</div>
+                        </div>
+                        <div class="counter-card">
+                            <div class="counter-num" data-count="9">0</div>
+                            <div class="counter-label">Core Initiatives</div>
+                        </div>
+                        <div class="counter-card">
+                            <div class="counter-num" data-count="6">0</div>
+                            <div class="counter-label">Tier Domains</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="vision-mission" style="padding-top: 0;">
+            <div class="container">
+                <div class="vision-mission-wrap reveal">
+                    <div class="vision-showcase">
+                        <span class="section-tag">Strategic Direction</span>
+                        <h3>Our Vision</h3>
+                        <p>To become Africa's leading network for criminology development, research, innovation, leadership, and professional excellence.</p>
+                    </div>
+                    <div>
+                        <span class="section-tag" style="display: block; text-align: center; margin-bottom: 3rem;">Commitments Matrix</span>
+                        <div class="mission-grid">
+                            <div class="mission-node">
+                                <div class="mission-icon-box">01</div>
+                                <div class="mission-details">
+                                    <h4>Education & Research</h4>
+                                    <p>Promote excellence in criminology education and research across institutions.</p>
+                                </div>
+                            </div>
+                            <div class="mission-node">
+                                <div class="mission-icon-box">02</div>
+                                <div class="mission-details">
+                                    <h4>Professional Mentorship</h4>
+                                    <p>Support students and young professionals through structured mentorship channels.</p>
+                                </div>
+                            </div>
+                            <div class="mission-node">
+                                <div class="mission-icon-box">03</div>
+                                <div class="mission-details">
+                                    <h4>Ethical Governance</h4>
+                                    <p>Encourage ethical leadership and uncompromised professionalism across domains.</p>
+                                </div>
+                            </div>
+                            <div class="mission-node">
+                                <div class="mission-icon-box">04</div>
+                                <div class="mission-details">
+                                    <h4>Bridge Building</h4>
+                                    <p>Foster collaboration among academic institutions and operational industry professionals.</p>
+                                </div>
+                            </div>
+                            <div class="mission-node">
+                                <div class="mission-icon-box">05</div>
+                                <div class="mission-details">
+                                    <h4>Knowledge Hubs</h4>
+                                    <p>Organize impactful conferences, workshops, seminars, and tailored training programmes.</p>
+                                </div>
+                            </div>
+                            <div class="mission-node">
+                                <div class="mission-icon-box">06</div>
+                                <div class="mission-details">
+                                    <h4>Reform Pipelines</h4>
+                                    <p>Contribute directly to active crime prevention, justice reform, and community development.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="core-values" style="background: rgba(var(--secondary-rgb), 0.02);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Values Directive</span>
+                    <h2 class="section-title">Our Core Pillars</h2>
+                    <p class="section-desc">The primary governing rules that drive our strategy, character, and individual member interactions across the network ecosystem.</p>
+                </div>
+                <div class="card-matrix">
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">🏆</div>
+                        <h3 class="matrix-title">Excellence</h3>
+                        <p class="matrix-desc">Upholding the highest professional and research standards in criminological study.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">🛡️</div>
+                        <h3 class="matrix-title">Integrity</h3>
+                        <p class="matrix-desc">Operating with absolute transparency, honesty, and alignment to ethical frameworks.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">🦅</div>
+                        <h3 class="matrix-title">Leadership</h3>
+                        <p class="matrix-desc">Cultivating dynamic capability and visionary direction in upcoming field experts.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">💡</div>
+                        <h3 class="matrix-title">Innovation</h3>
+                        <p class="matrix-desc">Advancing progressive methodologies and modern tracking tools to solve safety challenges.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">💼</div>
+                        <h3 class="matrix-title">Professionalism</h3>
+                        <p class="matrix-desc">Demonstrating unyielding consistency, respect, and duty execution guidelines.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">🤝</div>
+                        <h3 class="matrix-title">Collaboration</h3>
+                        <p class="matrix-desc">Building strong cooperative bridges across cross-functional academic fields.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">🌍</div>
+                        <h3 class="matrix-title">Service</h3>
+                        <p class="matrix-desc">Devoting specialized network knowledge resources to optimize societal safety tracks.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">⚖️</div>
+                        <h3 class="matrix-title">Accountability</h3>
+                        <p class="matrix-desc">Taking responsibility for our impacts, results, and reporting metrics openly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="what-we-do">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Operations</span>
+                    <h2 class="section-title">What We Do</h2>
+                    <p class="section-desc">Delivering structural solutions across educational systems, industrial networks, and local socio-economic communities.</p>
+                </div>
+                <div class="card-matrix" style="margin-bottom: 8rem;">
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">📖</div>
+                        <h3 class="matrix-title">Academic Development</h3>
+                        <p class="matrix-desc">Enhancing curriculum design frameworks and access parameters to premier pedagogical material.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">🎯</div>
+                        <h3 class="matrix-title">Professional Training</h3>
+                        <p class="matrix-desc">Building deep analytical capacity within active security divisions and corporate legal networks.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">✍️</div>
+                        <h3 class="matrix-title">Research & Publications</h3>
+                        <p class="matrix-desc">Authoring premium evidence-based local analyses tracking emerging crime trends.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">🎤</div>
+                        <h3 class="matrix-title">Conferences & Seminars</h3>
+                        <p class="matrix-desc">Providing high-level interactive platforms to establish regional security consensus tracks.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">👥</div>
+                        <h3 class="matrix-title">Mentorship</h3>
+                        <p class="matrix-desc">Connecting enthusiastic university students directly with established domain directors.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">🌱</div>
+                        <h3 class="matrix-title">Community Engagement</h3>
+                        <p class="matrix-desc">Deploying grassroots support mechanisms to aid civic security and institutional reforms.</p>
+                    </div>
+                </div>
+
+                <div class="section-header reveal" id="programs-anchor">
+                    <span class="section-tag">Portfolio</span>
+                    <h2 class="section-title">Core Initiatives</h2>
+                    <p class="section-desc">Strategic frameworks structured to output clear solutions for security platforms and research domains.</p>
+                </div>
+                <div class="card-matrix">
+                    <div class="matrix-card reveal">
+                        <h3 class="matrix-title">Annual Leadership Summit</h3>
+                        <p class="matrix-desc">Our flagship meeting bringing together global policy makers and academic leaders to discuss crime resolution frameworks.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <h3 class="matrix-title">Research Development Programme</h3>
+                        <p class="matrix-desc">Providing structured funding and research resource kits to advance localized academic writing efforts.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <h3 class="matrix-title">Career Mentorship Initiative</h3>
+                        <p class="matrix-desc">A specialized path connecting university seniors with industry supervisors for professional growth.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <h3 class="matrix-title">Student Excellence Forum</h3>
+                        <p class="matrix-desc">Fostering healthy student challenges, technical paper presentations, and merit award tracks.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <h3 class="matrix-title">Public Safety Awareness Campaign</h3>
+                        <p class="matrix-desc">Translating criminological analytics into accessible security advice guidelines for citizens.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <h3 class="matrix-title">Community Development Projects</h3>
+                        <p class="matrix-desc">Implementing evidence-backed security pilots targeting crime reduction in vulnerable zones.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <h3 class="matrix-title">Professional Skills Workshops</h3>
+                        <p class="matrix-desc">Certified training loops focused on intelligence tracking, crime analysis, and modern forensics.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <h3 class="matrix-title">Academic Writing Bootcamps</h3>
+                        <p class="matrix-desc">Intensive training labs focused on peer-review formats and submission guidelines for global research journals.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <h3 class="matrix-title">Youth Empowerment Projects</h3>
+                        <p class="matrix-desc">Educational outreach to reduce vulnerabilities and improve civic responsibility among young cohorts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="membership" style="background: rgba(var(--secondary-rgb), 0.02);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Join Network</span>
+                    <h2 class="section-title">Membership Domains</h2>
+                    <p class="section-desc">Connect with an elite ecosystem designed to elevate your professional trajectory and advance field standards.</p>
+                </div>
+                <div class="membership-layout">
+                    <div class="tier-card reveal">
+                        <h3 class="tier-name">Student Members</h3>
+                        <p class="tier-desc">Designed for undergraduate or graduate students exploring criminology, criminal law, or security fields.</p>
+                        <ul class="benefits-checklist">
+                            <li><span>✓</span> Access to Student Forums</li>
+                            <li><span>✓</span> Mentorship Mappings</li>
+                            <li><span>✓</span> Base Event Admissions</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXliTtBoJn09LHPHzLSo--wDUnv0xJY4L1lE-RhlC7c759bg/viewform?usp=publish-editor" class="btn btn-primary" style="margin-top: auto;" target="_blank" rel="noopener noreferrer">Join Network</a>
+                    </div>
+                    <div class="tier-card reveal">
+                        <h3 class="tier-name">Graduate Members</h3>
+                        <p class="tier-desc">Tailored for early-stage professionals transitioning into corporate research paths or civic services.</p>
+                        <ul class="benefits-checklist">
+                            <li><span>✓</span> Career Track Integration</li>
+                            <li><span>✓</span> Research Co-Author Options</li>
+                            <li><span>✓</span> Network Circle Clearances</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXliTtBoJn09LHPHzLSo--wDUnv0xJY4L1lE-RhlC7c759bg/viewform?usp=publish-editor" class="btn btn-primary" style="margin-top: auto;" target="_blank" rel="noopener noreferrer">Join Network</a>
+                    </div>
+                    <div class="tier-card featured reveal">
+                        <h3 class="tier-name" style="color: var(--secondary);">Professional Members</h3>
+                        <p class="tier-desc">For experienced field practitioners, corporate security officers, and judicial administrative leads.</p>
+                        <ul class="benefits-checklist">
+                            <li><span>✓</span> Advisory Seat Eligibility</li>
+                            <li><span>✓</span> Panel Keynote Opportunities</li>
+                            <li><span>✓</span> Certification Modules Pack</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXliTtBoJn09LHPHzLSo--wDUnv0xJY4L1lE-RhlC7c759bg/viewform?usp=publish-editor" class="btn btn-primary" style="margin-top: auto; background: var(--secondary);" target="_blank" rel="noopener noreferrer">Join Network</a>
+                    </div>
+                    <div class="tier-card reveal">
+                        <h3 class="tier-name">Academic Members</h3>
+                        <p class="tier-desc">Reserved for professors, dedicated institutional lecturers, and scholarly publishers.</p>
+                        <ul class="benefits-checklist">
+                            <li><span>✓</span> Peer-Review Panel Access</li>
+                            <li><span>✓</span> Collaborative Research Hubs</li>
+                            <li><span>✓</span> Editorial Group Invitations</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXliTtBoJn09LHPHzLSo--wDUnv0xJY4L1lE-RhlC7c759bg/viewform?usp=publish-editor" class="btn btn-primary" style="margin-top: auto;" target="_blank" rel="noopener noreferrer">Join Network</a>
+                    </div>
+                    <div class="tier-card reveal">
+                        <h3 class="tier-name">Institutional Members</h3>
+                        <p class="tier-desc">For legal academic colleges, regional security structures, and civic safety institutions.</p>
+                        <ul class="benefits-checklist">
+                            <li><span>✓</span> Corporate Capacity Packages</li>
+                            <li><span>✓</span> Broad Institutional Spotlight</li>
+                            <li><span>✓</span> Shared Data Permissions</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXliTtBoJn09LHPHzLSo--wDUnv0xJY4L1lE-RhlC7c759bg/viewform?usp=publish-editor" class="btn btn-primary" style="margin-top: auto;" target="_blank" rel="noopener noreferrer">Join Network</a>
+                    </div>
+                    <div class="tier-card reveal">
+                        <h3 class="tier-name">Honorary Members</h3>
+                        <p class="tier-desc">Awarded exclusively by executive board nomination for lifetime service to international safety.</p>
+                        <ul class="benefits-checklist">
+                            <li><span>✓</span> Lifetime Advisory Privileges</li>
+                            <li><span>✓</span> Permanent Summit Passes</li>
+                            <li><span>✓</span> Dedicated Spotlight Profile</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXliTtBoJn09LHPHzLSo--wDUnv0xJY4L1lE-RhlC7c759bg/viewform?usp=publish-editor" class="btn btn-primary" style="margin-top: auto;" target="_blank" rel="noopener noreferrer">Join Network</a>
+                    </div>
+                </div>
+
+                <div class="advantages-board reveal">
+                    <h3 class="advantages-title">Membership Network Advantages</h3>
+                    <ul class="advantages-matrix">
+                        <li><span class="adv-bullet">✦</span> High-impact collaboration frameworks spanning elite African security systems.</li>
+                        <li><span class="adv-bullet">✦</span> Instant alerts on peer-reviewed data uploads and research releases.</li>
+                        <li><span class="adv-bullet">✦</span> Verified paths into regional advisory boards and technical roundtables.</li>
+                        <li><span class="adv-bullet">✦</span> Subsidized certified training options from prominent partner structures.</li>
+                        <li><span class="adv-bullet">✦</span> Structural channels to distribute individual studies and research papers.</li>
+                        <li><span class="adv-bullet">✦</span> Full visibility into secure employment listings and field mappings.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="leadership">
+            <div class="container">
+                <div class="section-header reveal" style="text-align: center; margin-left: auto; margin-right: auto;">
+                    <span class="section-tag">Governance Board</span>
+                    <h2 class="section-title">Network Administration</h2>
+                </div>
+                <div class="governance-wrapper reveal">
+                    <div class="avatar-placeholder" aria-hidden="true">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <h3 class="governance-title">Executive profiles will be updated.</h3>
+                    <p class="governance-desc">The advisory assembly is currently verifying upcoming committee allocations. Structural profile details will be updated here during the coming session.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="events" style="background: rgba(var(--secondary-rgb), 0.02);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Schedule</span>
+                    <h2 class="section-title">Upcoming Briefings</h2>
+                    <p class="section-desc">Track and map key dialogue gatherings, peer assemblies, and interactive training workshops.</p>
+                </div>
+                <div class="timeline-container">
+                    <div class="timeline-node left reveal">
+                        <div class="timeline-bubble">
+                            <span class="node-tag">Strategic Assembly</span>
+                            <h3 class="node-title">Leadership Conferences</h3>
+                            <p class="node-status">Agenda Parameters Forming</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node right reveal">
+                        <div class="timeline-bubble">
+                            <span class="node-tag">Scholarly Council</span>
+                            <h3 class="node-title">Academic Symposiums</h3>
+                            <p class="node-status">Abstract Submissions Pending Opening</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node left reveal">
+                        <div class="timeline-bubble">
+                            <span class="node-tag">Open Classroom</span>
+                            <h3 class="node-title">Public Lectures</h3>
+                            <p class="node-status">Speaker Details Under Review</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node right reveal">
+                        <div class="timeline-bubble">
+                            <span class="node-tag">Technical Lab</span>
+                            <h3 class="node-title">Security Workshops</h3>
+                            <p class="node-status">Participant Registration Pending</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node left reveal">
+                        <div class="timeline-bubble">
+                            <span class="node-tag">Empirical Review</span>
+                            <h3 class="node-title">Research Presentations</h3>
+                            <p class="node-status">Review Board Mapping Active</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node right reveal">
+                        <div class="timeline-bubble">
+                            <span class="node-tag">Mentorship Track</span>
+                            <h3 class="node-title">Career Development Sessions</h3>
+                            <p class="node-status">Cohort Allocation Approaching</p>
+                        </div>
+                    </div>
+                    <div class="timeline-node left reveal">
+                        <div class="timeline-bubble">
+                            <span class="node-tag">Field Outreach</span>
+                            <h3 class="node-title">Community Outreach Projects</h3>
+                            <p class="node-status">Chapter Logistics Alignment Active</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="gallery">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Media Vault</span>
+                    <h2 class="section-title">Network Environments</h2>
+                    <p class="section-desc">Visual documentation capturing key learning sessions, research environments, and summit gatherings.</p>
+                </div>
+                <div class="masonry-wall">
+                    <div class="masonry-brick reveal">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="University Hall Setup">
+                        <div class="brick-overlay">
+                            <div class="brick-caption">Academic Learning Environments</div>
+                        </div>
+                    </div>
+                    <div class="masonry-brick reveal">
+                        <img src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?auto=format&fit=crop&w=600&q=80" alt="Legal Data Books">
+                        <div class="brick-overlay">
+                            <div class="brick-caption">Criminological Research Libraries</div>
+                        </div>
+                    </div>
+                    <div class="masonry-brick reveal">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="Conference Interaction Group">
+                        <div class="brick-overlay">
+                            <div class="brick-caption">Cross-Border Leadership Summits</div>
+                        </div>
+                    </div>
+                    <div class="masonry-brick reveal">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Global Dialogue Circle">
+                        <div class="brick-overlay">
+                            <div class="brick-caption">International Research Consensus</div>
+                        </div>
+                    </div>
+                    <div class="masonry-brick reveal">
+                        <img src="https://images.unsplash.com/photo-1423503135955-e3b16e643c1e?auto=format&fit=crop&w=600&q=80" alt="Data Screen Matrix">
+                        <div class="brick-overlay">
+                            <div class="brick-caption">Advanced Analytics Workshops</div>
+                        </div>
+                    </div>
+                    <div class="masonry-brick reveal">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Professional Presentation Council">
+                        <div class="brick-overlay">
+                            <div class="brick-caption">Annual Research Presentations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="partners" style="padding-top: 0;">
+            <div class="container">
+                <div class="partners-card reveal">
+                    <span class="section-tag">Alliance Matrix</span>
+                    <p class="partners-text">"We welcome collaborations with universities, government agencies, NGOs, research institutes, security organizations and development partners."</p>
+                    <div class="logo-flexbox">
+                        <div class="logo-placeholder-node">University Hubs</div>
+                        <div class="logo-placeholder-node">State Services</div>
+                        <div class="logo-placeholder-node">Justice NGOs</div>
+                        <div class="logo-placeholder-node">Research Institutes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="news" style="background: rgba(var(--secondary-rgb), 0.02);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Intelligence Feed</span>
+                    <h2 class="section-title">Knowledge & Reports</h2>
+                    <p class="section-desc">Stay aligned with our structural changes, paper publications, and community highlights.</p>
+                </div>
+                <div class="card-matrix">
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">📰</div>
+                        <h3 class="matrix-title">Latest News</h3>
+                        <p class="matrix-desc">Tracking operational reports and deployment milestones across our regional African chapters.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">📑</div>
+                        <h3 class="matrix-title">Research Articles</h3>
+                        <p class="matrix-desc">Recent data listings, legislative briefs, and comparative criminal analysis papers.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">📊</div>
+                        <h3 class="matrix-title">Conference Reports</h3>
+                        <p class="matrix-desc">Detailed outcome matrices and policy solutions structured from our latest roundtable events.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">📚</div>
+                        <h3 class="matrix-title">Publications</h3>
+                        <p class="matrix-desc">Peer-reviewed journals, book indexes, and handbook templates for field security personnel.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">📣</div>
+                        <h3 class="matrix-title">Announcements</h3>
+                        <p class="matrix-desc">Official schedule notices, intake calls, and timeline adjustments straight from the Executive Board.</p>
+                    </div>
+                    <div class="matrix-card reveal">
+                        <div class="matrix-icon">⭐</div>
+                        <h3 class="matrix-title">Member Spotlights</h3>
+                        <p class="matrix-desc">Celebrating academic achievements and innovative fieldwork contributions from across our global network.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="contact-card-box reveal">
+                    <span class="section-tag" style="color: var(--accent);">Communications</span>
+                    <h3>Establish Connection</h3>
+                    <p>Reach out to our administrative workspace directly for research alliance, corporate inquiries, or verification questions.</p>
+                    <a href="mailto:cden.2580@gmail.com" class="email-anchor">cden.2580@gmail.com</a>
+                    <div>
+                        <a href="mailto:cden.2580@gmail.com" class="btn btn-outline" style="border-color: var(--accent); color: var(--accent);">Send Email</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top-row">
+                <div class="footer-title-block">
+                    <h4>CDEN</h4>
+                    <p>Knowledge • Leadership • Excellence • Impact</p>
+                </div>
+                <div class="footer-mail-link">
+                    <p>Contact Desk: <a href="mailto:cden.2580@gmail.com">cden.2580@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-base">
+                <p>&copy; 2026 Criminology Development and Excellence Network (CDEN). All rights reserved.</p>
+                <p style="opacity: 0.5;">Engineered to Publication-Ready Professional Specifications.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" class="back-to-top" id="back-to-top" aria-label="Scroll back to top of workspace">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </a>
+
+    <script>
+        // Synchronized Loader Control Logic
+        window.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }, 600);
+        });
+
+        // Navigation Controller & Scroll Progress Calculations
+        const headerElement = document.getElementById('main-header');
+        const progressIndicator = document.getElementById('scroll-progress');
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollPos = window.scrollY;
+            const absoluteHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const compiledPercentage = (currentScrollPos / absoluteHeight) * 100;
+            
+            progressIndicator.style.width = compiledPercentage + '%';
+
+            if (currentScrollPos > 60) {
+                headerElement.classList.add('scrolled');
+            } else {
+                headerElement.classList.remove('scrolled');
+            }
+
+            if (currentScrollPos > 600) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Localized Theme Swap Engine (Dark/Light Architecture)
+        const themeButton = document.getElementById('theme-toggle');
+        const selectedThemeCache = localStorage.getItem('theme-preference') || 'light';
+
+        if (selectedThemeCache === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        themeButton.addEventListener('click', () => {
+            let activePalette = document.documentElement.getAttribute('data-theme');
+            if (activePalette === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme-preference', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme-preference', 'dark');
+            }
+        });
+
+        // Mobile Responsive Menu Controller
+        const menuToggle = document.getElementById('hamburger-menu');
+        const sideMenu = document.getElementById('nav-menu');
+        const menuAnchors = document.querySelectorAll('.nav-item a');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = sideMenu.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', !isOpen);
+            menuToggle.classList.toggle('active');
+            sideMenu.classList.toggle('active');
+        });
+
+        menuAnchors.forEach(anchor => {
+            anchor.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.classList.remove('active');
+                sideMenu.classList.remove('active');
+            });
+        });
+
+        // High-Performance Intersection Observer for Element Transitions
+        const dynamicRevealNodes = document.querySelectorAll('.reveal');
+        const entryObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Counter execution check
+                    const numericCounters = entry.target.querySelectorAll('.counter-num');
+                    if (numericCounters.length > 0) {
+                        numericCounters.forEach(counter => animateCounterEngine(counter));
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
+
+        dynamicRevealNodes.forEach(node => entryObserver.observe(node));
+
+        // Statistical Numeric Ticker Engine
+        function animateCounterEngine(counterElement) {
+            const calculatedTarget = +counterElement.getAttribute('data-count');
+            const trackingDuration = 1800; // ms
+            const computationStep = Math.max(Math.floor(trackingDuration / calculatedTarget), 40);
+            let absoluteStart = 0;
+
+            const trackingTimer = setInterval(() => {
+                absoluteStart += 1;
+                counterElement.innerText = absoluteStart;
+                if (absoluteStart >= calculatedTarget) {
+                    counterElement.innerText = calculatedTarget;
+                    clearInterval(trackingTimer);
+                }
+            }, computationStep);
+        }
+    </script>
+</body>
+</html>
